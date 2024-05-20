@@ -2,7 +2,6 @@ import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 import PollOption from "./PollOption";
 import withRouter from "../router/withRouter";
-import { checkVotedPoll } from "../utils/helpers";
 
 const PollPage = (props) => {
     const { user, question, authedUser } = props;
@@ -10,8 +9,6 @@ const PollPage = (props) => {
     if(!user || !question || !authedUser){
         return <Navigate to="*"/>
     }
-
-    const answered = checkVotedPoll(question,authedUser);
 
     return (
         <div className="container">
@@ -21,12 +18,10 @@ const PollPage = (props) => {
             <div className="poll-option-container">
                 <PollOption 
                     option="optionOne"
-                    answered={answered}
                     question={question}
                 />
                 <PollOption 
                     option="optionTwo"
-                    answered={answered}
                     question={question}
                 />
             </div>

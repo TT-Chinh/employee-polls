@@ -26,7 +26,7 @@ const Nav = (props) => {
             <ul className="nav-right">
                 <li>
                     <img alt="avatar" src={user.avatarURL} className="avatar" />
-                    <strong>{user.id}</strong>
+                    <strong data-testid="user-info">{user.id}</strong>
                 </li>
                 <li><div className="btn-logout" onClick={handleClick}>Logout</div></li>
             </ul>

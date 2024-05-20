@@ -11,7 +11,7 @@ function Dashboard({ qnews, qdones }) {
 
     return (
         <div>
-            <h1 data-testid="hearder">Dashboard</h1>
+            <h1 data-testid="dashboard-hearder">Dashboard</h1>
             <div className="section">
                 <div className="tab-container">
                     <div className={classNewTab} 

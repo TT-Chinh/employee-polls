@@ -15,10 +15,10 @@ const Login = ({ dispatch, users }) => {
         <div className="container">
             <h2 className="center">Employee Polls</h2>
             <div className="box-center"><div className="login-avatar"></div></div>
-            <h3 className="center">Login</h3>
+            <h3 className="center" data-testid="login-header">Login</h3>
             <form onSubmit={handleSubmit}>
                 <label className="center">User</label>
-                <select defaultValue={id} onChange={e => setId(e.target.value)} >
+                <select defaultValue={id} onChange={e => setId(e.target.value)} data-testid="userid" >
                     <option value="" disabled>Choose a user</option>
                     {
                         Object.keys(users).map(id => (
@@ -27,7 +27,7 @@ const Login = ({ dispatch, users }) => {
                     }
                 </select>
                 <div className="box-center">
-                    <button type="submit" className="btn center" disabled={id === ""}>Submit</button>
+                    <button type="submit" className="btn center" disabled={id === ""} data-testid="submit">Submit</button>
                 </div>
             </form>
         </div>
