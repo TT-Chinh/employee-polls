@@ -23,9 +23,9 @@ function App({dispatch, authedUser}) {
           <Nav/>
           <Routes>
             <Route path="/" exact element={<Dashboard />} />
-            <Route path="/poll/:id" exact element={<PollPage />} />
-            <Route path="/new" exact element={<NewQuestion />} />
-            <Route path="/lead" exact element={<LeaderBoard />} />
+            <Route path="/questions/:id" exact element={<PollPage />} />
+            <Route path="/add" exact element={<NewQuestion />} />
+            <Route path="/leaderboard" exact element={<LeaderBoard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </>

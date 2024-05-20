@@ -2,15 +2,13 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import { handleLogin } from "../actions/authedUser";
 
-const Login = ({ dispatch }) => {
+const Login = ({ dispatch, users }) => {
     const [id, setId] = useState("");
-    const [password, setPassword] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(handleLogin({ id, password }));
+        dispatch(handleLogin(id));
         setId("");
-        setPassword("");
     }
 
     return (
@@ -20,15 +18,22 @@ const Login = ({ dispatch }) => {
             <h3 className="center">Login</h3>
             <form onSubmit={handleSubmit}>
                 <label className="center">User</label>
-                <input type="text" value={id} placeholder="User" onChange={e => setId(e.target.value)} />
-                <label className="center">Password</label>
-                <input type="password" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                <select defaultValue={id} onChange={e => setId(e.target.value)} >
+                    <option value="" disabled>Choose a user</option>
+                    {
+                        Object.keys(users).map(id => (
+                            <option key={id} value={id}>{users[id].name}</option>
+                        ))
+                    }
+                </select>
                 <div className="box-center">
-                    <button type="submit" className="btn center" disabled={id === "" || password === ""}>Submit</button>
+                    <button type="submit" className="btn center" disabled={id === ""}>Submit</button>
                 </div>
             </form>
         </div>
     )
 }
 
-export default connect()(Login);
+const mapStateToProps = ({ users }) => ({ users });
+
+export default connect(mapStateToProps)(Login);

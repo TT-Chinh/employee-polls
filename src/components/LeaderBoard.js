@@ -34,13 +34,11 @@ const LeaderBoard = ({ userIds, users }) => {
 
 const mapStateToProps = ({ users }) => ({
     userIds: Object.keys(users).sort(
-        (a,b) => {
-            const n = users[b].questions.length - users[a].questions.length;
-            if(n === 0){
-                return Object.keys(users[b].answers).length - Object.keys(users[a].answers).length;
-            }
-            return n;
-        }
+        (a,b) => (
+            (users[b].questions.length + Object.keys(users[b].answers).length)
+            - 
+            (users[a].questions.length + Object.keys(users[a].answers).length)
+        )
     ),
     users,
 })

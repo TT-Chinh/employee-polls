@@ -17,10 +17,10 @@ const Nav = (props) => {
                     <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to="/lead">LeaderBoard</Link>
+                    <Link to="/leaderboard">LeaderBoard</Link>
                 </li>
                 <li>
-                    <Link to="/new">New</Link>
+                    <Link to="/add">New</Link>
                 </li>
             </ul>
             <ul className="nav-right">

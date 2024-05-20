@@ -7,7 +7,7 @@ const Poll = ({ poll }) => {
 
     const handleShow = (e) => {
         e.preventDefault();
-        navigate(`/poll/${poll.id}`);
+        navigate(`/questions/${poll.id}`);
     }
 
     return (

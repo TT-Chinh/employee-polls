@@ -1,10 +1,10 @@
 export const SET_AUTHED_USER = "SET_AUTHED_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
 
-function setAuthedUser(user) {
+function setAuthedUser(id) {
   return {
     type: SET_AUTHED_USER,
-    user,
+    id,
   };
 }
 
@@ -14,8 +14,8 @@ function logout(){
   }
 }
 
-export function handleLogin(user) {
-  return dispatch => dispatch(setAuthedUser(user));
+export function handleLogin(id) {
+  return dispatch => dispatch(setAuthedUser(id));
 }
 
 export function handleLogout() {
